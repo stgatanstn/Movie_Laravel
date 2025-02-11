@@ -22,7 +22,7 @@ use App\Http\Controllers\MovieController;
 Route::post("register_admin", [AuthController::class,"register"]);
 Route::get("/get_user",[AuthController::class,"getUser"]);
 Route::get("/get_detail_user/{id}",[AuthController::class,"getDetailUser"]);
-Route::put("/update_user/{id}",[AuthController::class,"updateUser"]);
+Route::put("/update_userz/{id}",[AuthController::class,"updateUser"]);
 Route::delete("/hapus_user/{id}",[AuthController::class,"hapus_user"]);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -44,3 +44,7 @@ Route::get('/movies', [MovieController::class, 'getMovie']);
 Route::get('/movie/{id}', [MovieController::class, 'getDetailMovie']); 
 Route::put('/update_movie/{id}', [MovieController::class, 'update_Movie']); 
 Route::delete('/delete_movie/{id}', [MovieController::class, 'hapus_Movie']); 
+
+//login-logout
+Route::post("/login",[AuthController::class,"login"]);
+Route::get("/logout",[AuthController::class,"logout"]);
